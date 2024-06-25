@@ -1,3 +1,3 @@
 package dev.jacob.TrialTask.api.model;
 
-public record PointModel(long id, String name, int x, int y) { }
+public record PointModel(String name, int x, int y) { }

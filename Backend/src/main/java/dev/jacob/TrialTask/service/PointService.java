@@ -24,23 +24,27 @@ public class PointService {
 
         return pointRepository.findAll()
                 .stream()
-                .map(point -> new PointModel(point.getId(), point.getName(), point.getX(), point.getY())).toList();
+                .map(point -> new PointModel(point.getName(), point.getX(), point.getY())).toList();
     }
 
     public PointModel getPointById(long id) {
 
         Point point = pointRepository.getReferenceById(id);
 
-        return new PointModel(point.getId(), point.getName(), point.getX(), point.getY());
+        return new PointModel(point.getName(), point.getX(), point.getY());
     }
 
 
     public PointModel addPoint(PointCreationRequest pointReq) {
 
+        if(pointRepository.findByName(pointReq.getName()) != null) {
+            return null;
+        }
+
         Point point = new Point(pointReq.getName(), pointReq.getX(), pointReq.getY());
         point = pointRepository.save(point);
 
-        return new PointModel(point.getId(), point.getName(), point.getX(), point.getY());
+        return new PointModel(point.getName(), point.getX(), point.getY());
     }
 
     public boolean deletePoint(String name) {
@@ -76,6 +80,6 @@ public class PointService {
         }
         point = pointRepository.save(point);
 
-        return new PointModel(point.getId(), point.getName(), point.getX(), point.getY());
+        return new PointModel(point.getName(), point.getX(), point.getY());
     }
 }

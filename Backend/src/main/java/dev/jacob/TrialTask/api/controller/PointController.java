@@ -28,7 +28,11 @@ public class PointController {
 
     @PostMapping("/addPoint")
     public ResponseEntity<PointModel> addPoint(@RequestBody PointCreationRequest pointReq) {
-        return ResponseEntity.status(201).body(pointService.addPoint(pointReq));
+        PointModel result = pointService.addPoint(pointReq);
+        if(result == null) {
+            return ResponseEntity.badRequest().body(null);
+        }
+        return ResponseEntity.status(201).body(result);
     }
 
     @DeleteMapping("/deletePoint/{name}")
