@@ -77,9 +77,7 @@ async function del() {
 
 function findClosestPoint(cur: any) {
     const newList = []
-    // points.value.array.forEach(pt => {
-        //TODO
-    // });
+
     var pts = points.value
     for(var point in pts) {
         var pt = pts[point]
@@ -106,9 +104,7 @@ function findClosestPoint(cur: any) {
 }
 function findFurthestPoint(cur: any) {
     const newList = []
-    // points.value.array.forEach(pt => {
-        //TODO
-    // });
+
     var pts = points.value
     for(var point in pts) {
         var pt = pts[point]

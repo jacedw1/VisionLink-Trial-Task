@@ -53,16 +53,4 @@ public class PointController {
         }
         return ResponseEntity.status(404).build();
     }
-
-    @GetMapping("/findClosest/{name}")
-    public ResponseEntity<List<PointModel>> findClosest(@PathVariable String name) {
-        //TODO implement method if needed
-        return ResponseEntity.status(500).build();
-    }
-
-    @GetMapping("/findFurthest/{name}")
-    public ResponseEntity<List<PointModel>> findFurthest(@PathVariable String name) {
-        //TODO implement method if needed
-        return ResponseEntity.status(500).build();
-    }
 }
